@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post Book</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body onload="checkLoggedInUser()">
+  <div style="display: flex; align-items: center; gap: 5px; justify-content: end;">
+    <h1>Welcome, <span id="logged-username">User</span></h1>
+    <div>
+      <button
+        style="background-color: cadetblue; padding: 3px 6px; border: none; border-radius: 40px; color: azure; font-size: medium; cursor: pointer;"
+        onclick="logOut()">Logout</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- adding new post section -->
+    <section style="
+          width: 80%;
+          margin: 10px auto;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          ">
+      <h2 style="font-weight: 700;">Add a new post</h2>
+      <form>
+        <div style="margin-right: 5px">
+          <textarea required name="new-post" id="new-post" rows="5" cols="30"></textarea>
+        </div>
+        <div style="margin-right: 5px; width: 220px; margin-bottom: 5px">
+          <input required style="width: 100%" type="text" placeholder="add image url" id="new-post-img-url" />
+        </div>
+        <div>
+          <button class="addNewPost" onclick="handleAddNewPost()">POST</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- a single post -->
+    <section id="post-container">
+    </section>
+
+    <script src="./js/utils/calculateTimeDifference.js"></script>
+    <script src="./js/fetchData.js"></script>
+  </main>
+</body>
+
+</html>

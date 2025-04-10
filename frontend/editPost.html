@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Edit Your Post</h2>
+
+    <label for="edit-post-text">Post Text:</label>
+    <textarea id="edit-post-text" rows="5"></textarea>
+
+    <label for="edit-post-img-url">Image URL (optional):</label>
+    <input type="text" id="edit-post-img-url" />
+
+    <button onclick="handleEditPost()">Update Post</button>
+    <button onclick="handleBack()">Go Back</button>
+
+    <script>
+        // Load the post when page loads
+        window.onload = async () => {
+            const postId = localStorage.getItem("targetPostId");
+
+            const res = await fetch(`http://localhost:5000/getPostById/${postId}`);
+            const post = await res.json();
+
+            document.getElementById("edit-post-text").value = post.postText;
+            document.getElementById("edit-post-img-url").value = post.postImageUrl;
+        };
+        const handleBack = () => {
+            window.location.href = "./index.html"
+        }
+        // Handle the update
+        const handleEditPost = async () => {
+            const postId = localStorage.getItem("targetPostId");
+
+            const postText = document.getElementById("edit-post-text").value;
+            const postImageUrl = document.getElementById("edit-post-img-url").value;
+
+            const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+            const postedUserId = loggedInUser?.userId;
+
+            if (!postedUserId) {
+                alert("User not logged in.");
+                return;
+            }
+
+            const updatedPost = {
+                postText,
+                postImageUrl,
+                postedUserId,
+            };
+
+            const res = await fetch(`http://localhost:5000/editPost/${postId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(updatedPost),
+            });
+
+            const data = await res.json();
+            if (data.success) {
+                alert("Post updated successfully!");
+                window.location.href = "../index.html"; // or main page
+            } else {
+                alert("Failed to update the post.");
+            }
+        };
+    </script>
+
+</body>
+
+</html>

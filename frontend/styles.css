@@ -1,0 +1,212 @@
+* {
+  font-family: "Karla", sans-serif;
+}
+
+.addNewPost {
+  background-color: cadetblue;
+  padding: 12px;
+  border: none;
+  color: azure;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.addNewPost:hover {
+  background-color: rgb(53, 99, 100);
+  transition-duration: 0.35s;
+}
+
+#post-container {
+  background-color: rgb(255, 247, 251);
+  width: 90%;
+
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post {
+  width: 60%;
+  margin-bottom: 5px;
+  margin-top: 30px;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.post-header {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.edit-delete-holder {
+  display: flex;
+  margin-left: auto;
+}
+
+.edit-delete-holder button {
+  margin-right: 5px;
+}
+
+.editButton {
+  padding: 12px;
+  font-weight: 700;
+  color: aliceblue;
+  background-color: cadetblue;
+  border: none;
+  cursor: pointer;
+}
+
+.deleteButton {
+  padding: 12px;
+  font-weight: 700;
+  color: aliceblue;
+  background-color: rgb(255, 16, 16);
+  border: none;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  padding: 11px;
+  background: rgb(201, 13, 13);
+  border-radius: 4px;
+  transition-duration: 0.35s;
+}
+
+.editButton:hover {
+  padding: 11px;
+  background: rgb(76, 127, 128);
+  border-radius: 4px;
+  transition-duration: 0.35s;
+}
+
+.post-user-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.post-details {}
+
+.post-username {
+  margin: 0;
+  margin-top: 3px;
+}
+
+.posted-time {
+  margin: 0;
+  color: rgb(106, 103, 103);
+}
+
+.post-text {
+  margin-top: 4px;
+}
+
+.post-text-content {
+  margin: 0;
+  padding: 10px;
+}
+
+.post-image {
+  display: flex;
+  justify-content: center;
+}
+
+.post-image img {
+  width: 50%;
+  border-radius: 8px;
+  margin: 15px;
+}
+
+.comment-holder {
+  background-color: rgba(172, 209, 211, 0.757);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 3px;
+}
+
+.comment-container {
+  display: flex;
+  align-items: start;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.comment-user-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comment-text-container {
+  background-color: rgba(204, 237, 127, 0.397);
+  padding: 10px;
+}
+
+.comment-text-container h4 {
+  margin: 0;
+  margin-bottom: 3px;
+}
+
+.comment-text-container p {
+  margin: 0;
+}
+
+.postComment-container {
+  display: flex;
+  margin-top: 15px;
+}
+
+.postComment-input {
+  padding: 10px;
+  outline: none;
+  border: 1px solid rgb(100, 95, 95);
+  width: 100%;
+}
+
+.postComment-label {
+  margin-left: 5px;
+  margin-top: 7px;
+  color: red;
+  font-size: small;
+}
+
+.postComment-btn {
+  padding: 10px;
+  background-color: rgb(243, 11, 11);
+  border: none;
+  color: white;
+  margin-left: 0px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.postComment-btn:hover {
+  cursor: pointer;
+  background-color: rgb(193, 10, 10);
+  transition-duration: 0.35s;
+}
+
+/* modal design */
+
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  z-index: 1;
+  border: 2px solid olivedrab;
+  position: fixed;
+  bottom: 0;
+}
+
+.modal-content {
+  width: 50%;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin: 15% auto;
+}
